@@ -14,8 +14,8 @@
     <div class="container">
       連絡先: <a href="https://twitter.com/imishinist">@imishinist</a>
       <div id="markdown">
-        <textarea v-model="text"></textarea>
-        <div v-html="text"></div>
+        <textarea v-model="text" v-on="keydown: replaceTab | key tab"></textarea>
+        <div v-html="text | marked"></div>
       </div>
     </div>
     <script type="text/javascript" src="js/app.js"></script>
