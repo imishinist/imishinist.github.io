@@ -5,7 +5,6 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="css/app.css">
-    <link rel="stylesheet" href="css/lang/default.css">
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
   </head>
@@ -15,6 +14,8 @@
     <div class="container">
       連絡先: <a href="https://twitter.com/imishinist">@imishinist</a>
       <div id="markdown">
+          <select v-model="langFile" options="langFiles"></select>
+          <div v-component="lazy-link" v-with="file : langFile"></div>
         <textarea v-model="text" v-on="keydown: replaceTab | key tab"></textarea>
         <div v-html="text | marked"></div>
       </div>
