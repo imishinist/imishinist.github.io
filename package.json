@@ -1,0 +1,18 @@
+{
+  "name": "imishinist.github.io",
+  "version": "0.0.1",
+  "description": "imishinist.github.io",
+  "main": "index.html",
+  "scripts": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/imishinist/imishinist.github.io"
+  },
+  "author": "Taisuke Miyazaki",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/imishinist/imishinist.github.io/issues"
+  },
+  "homepage": "http://imishinist.github.io/"
+}
