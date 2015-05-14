@@ -1,0 +1,53 @@
+var gulp = require('gulp');
+var concat = require('gulp-concat');
+var uglify = require('gulp-uglify');
+var minifyCSS = require('gulp-minify-css');
+var webpack = require('gulp-webpack');
+var sass = require('gulp-sass');
+var watch = require('gulp-watch');
+var connect = require('gulp-connect');
+
+var DIST_DIR = './dist'; 
+
+var sass_options = {
+    errLogToConsole: true
+};
+
+gulp.task('sass', function() {
+    gulp.src('./src/sass/app.scss')
+        .pipe(sass(sass_options))
+        .pipe(concat('app.css'))
+        .pipe(gulp.dest(DIST_DIR));
+});
+
+var webpack_options = {
+    output: {
+        filename: 'app.js'
+    }
+};
+gulp.task('webpack', function() {
+    gulp.src('./src/js/app.js')
+        .pipe(webpack(webpack_options))
+        .pipe(gulp.dest(DIST_DIR));
+});
+
+var SASS_FILES = './src/sass/**/*.scss';
+var JS_FILES = './src/js/**/*.js';
+
+gulp.task('watch', function() {
+    watch(JS_FILES, function() {
+        gulp.start('webpack');
+    });
+    watch(SASS_FILES, function() {
+        gulp.start('sass');
+    });
+});
+
+gulp.task('connect', function() {
+    connect.server({
+        root: 'public',
+        livereload: true
+    });
+});
+
+gulp.task('default', ['connect', 'watch']);
