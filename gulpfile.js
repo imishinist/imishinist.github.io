@@ -7,8 +7,6 @@ var sass = require('gulp-sass');
 var watch = require('gulp-watch');
 var connect = require('gulp-connect');
 
-var DIST_DIR = './dist'; 
-
 var sass_options = {
     errLogToConsole: true
 };
@@ -17,7 +15,7 @@ gulp.task('sass', function() {
     gulp.src('./src/sass/app.scss')
         .pipe(sass(sass_options))
         .pipe(concat('app.css'))
-        .pipe(gulp.dest(DIST_DIR));
+        .pipe(gulp.dest('./css'));
 });
 
 var webpack_options = {
@@ -28,7 +26,8 @@ var webpack_options = {
 gulp.task('webpack', function() {
     gulp.src('./src/js/app.js')
         .pipe(webpack(webpack_options))
-        .pipe(gulp.dest(DIST_DIR));
+        .pipe(uglify())
+        .pipe(gulp.dest('./js'));
 });
 
 var SASS_FILES = './src/sass/**/*.scss';
@@ -45,7 +44,7 @@ gulp.task('watch', function() {
 
 gulp.task('connect', function() {
     connect.server({
-        root: 'public',
+        root: './',
         livereload: true
     });
 });
