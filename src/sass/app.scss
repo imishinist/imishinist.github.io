@@ -3,3 +3,11 @@ textarea {
     height: 250px;
     font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
 }
+footer {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}
+.license {
+    text-align: center;
+}

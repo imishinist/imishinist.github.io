@@ -11,3 +11,8 @@ npm install
 ```
 gulp
 ```
+
+## License
+
+Licensed under the [MIT](http://opensource.org/licenses/MIT) License.
+See [license](http://imishinist.github.io/LICENSE.txt) file.
