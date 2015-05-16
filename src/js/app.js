@@ -8,12 +8,16 @@ var app = new Vue({
         text: '',
         tabsize: "4",
         tabs: ["2", "4", "8"],
+        fontsize: 12,
         langFiles: langFiles(),
         langFile: localStorage.getItem('langFile') || 'default.css'
     },
     methods: {
         changeTabsize: function(e) {
             editor.getSession().setTabSize(this.tabsize);
+        },
+        changeFontsize: function(e) {
+            document.getElementById("editor").style.fontSize = this.fontsize + "px";
         },
         storeLang: function(e) {
             localStorage.setItem("langFile", this.langFile);
