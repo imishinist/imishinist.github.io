@@ -7,7 +7,7 @@ var app = new Vue({
     data: {
         text: '',
         langFiles: langFiles(),
-        langFile: 'default.css'
+        langFile: localStorage.getItem('langFile') || 'default.css'
     },
     methods: {
         replaceTab: function(e) {
@@ -18,6 +18,9 @@ var app = new Vue({
             value = elem.value;
             elem.value = "" + (value.substring(0, start)) + "\t" + (value.substring(end));
             elem.selectionStart = elem.selectionEnd = start + 1;
+        },
+        storeLang: function(e) {
+            localStorage.setItem("langFile", this.langFile);
         }
     },
     components: {
