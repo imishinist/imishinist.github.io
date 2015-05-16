@@ -16,6 +16,7 @@
       <div id="markdown">
         <div class="col-sm-6">
           <select v-model="tabsize" v-on="change: changeTabsize" options="tabs"></select>
+          <select v-model="mode" v-on="change: changeMode" options="modes"></select>
           <input type="number" step="1" min="0" v-model="fontsize" v-on="change: changeFontsize">px
           <div id="editor"></div>
         </div>

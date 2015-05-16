@@ -9,10 +9,15 @@ var app = new Vue({
         tabsize: "4",
         tabs: ["2", "4", "8"],
         fontsize: 12,
+        mode: 'markdown',
+        modes: editor.modes,
         langFiles: langFiles(),
         langFile: localStorage.getItem('langFile') || 'default.css'
     },
     methods: {
+        changeMode: function(e) {
+            editor.getSession().setMode('ace/mode/' + this.mode);
+        },
         changeTabsize: function(e) {
             editor.getSession().setTabSize(this.tabsize);
         },
