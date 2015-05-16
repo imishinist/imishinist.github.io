@@ -1,7 +1,7 @@
 var Vue = require('vue');
 var marked = require('./marked.js');
 var langFiles = require('./lang.js');
-
+var editor = require('./editor.js');
 var app = new Vue({
     el: '#markdown',
     data: {
@@ -10,15 +10,6 @@ var app = new Vue({
         langFile: localStorage.getItem('langFile') || 'default.css'
     },
     methods: {
-        replaceTab: function(e) {
-            e.preventDefault();
-            var elem = e.target;
-            start = elem.selectionStart;
-            end = elem.selectionEnd;
-            value = elem.value;
-            elem.value = "" + (value.substring(0, start)) + "\t" + (value.substring(end));
-            elem.selectionStart = elem.selectionEnd = start + 1;
-        },
         storeLang: function(e) {
             localStorage.setItem("langFile", this.langFile);
         }
@@ -31,4 +22,8 @@ var app = new Vue({
     filters: {
         marked: marked
     }
+});
+
+editor.on('change', function() {
+    app.text = editor.getSession().getValue();
 });
