@@ -16,6 +16,7 @@
       <div id="markdown">
         <div class="col-sm-6">
           <select v-model="langFile" v-on="change: storeLang" options="langFiles"></select>
+          <select v-model="tabsize" v-on="change: changeTabsize" options="tabs"></select>
           <div v-component="lazy-link" v-with="file : langFile"></div>
           <div id="editor"></div>
         </div>
