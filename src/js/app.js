@@ -11,10 +11,15 @@ var app = new Vue({
         fontsize: 12,
         mode: 'markdown',
         modes: editor.modes,
+        theme: 'xcode',
+        themes: editor.themes,
         langFiles: langFiles(),
         langFile: localStorage.getItem('langFile') || 'default.css'
     },
     methods: {
+        changeEditorTheme: function(e) {
+            editor.setTheme('ace/theme/' + this.theme);
+        },
         changeMode: function(e) {
             editor.getSession().setMode('ace/mode/' + this.mode);
         },
@@ -41,4 +46,3 @@ var app = new Vue({
 editor.on('change', function() {
     app.text = editor.getSession().getValue();
 });
-
