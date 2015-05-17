@@ -1,4 +1,4 @@
-module.exports = function() {
+module.exports = (function() {
     return [ "ambiance",
             "chaos",
             "chrome",
@@ -33,4 +33,4 @@ module.exports = function() {
             "twilight",
             "vibrant_ink",
             "xcode"];
-}();
+})();

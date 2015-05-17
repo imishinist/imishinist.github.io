@@ -1,4 +1,4 @@
-module.exports = function() {
+module.exports = (function() {
     return [ "a",
             "abc",
             "actionscript",
@@ -125,4 +125,4 @@ module.exports = function() {
             "xml",
             "xquery",
             "yaml"]
-}();
+})();

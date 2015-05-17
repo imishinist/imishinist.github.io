@@ -1,4 +1,4 @@
-module.exports = function() {
+module.exports = (function() {
     var marked = require('marked');
     var hl = require('highlight.js');
     var renderer = new marked.Renderer();
@@ -23,4 +23,4 @@ module.exports = function() {
         }
     });
     return marked;
-}();
+})();

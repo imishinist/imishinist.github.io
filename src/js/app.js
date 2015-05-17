@@ -13,7 +13,7 @@ var app = new Vue({
         modes: editor.modes,
         theme: 'xcode',
         themes: editor.themes,
-        langFiles: langFiles(),
+        langFiles: langFiles,
         langFile: localStorage.getItem('langFile') || 'default.css'
     },
     methods: {

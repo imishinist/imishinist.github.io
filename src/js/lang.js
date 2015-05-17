@@ -1,4 +1,4 @@
-module.exports = function() {
+module.exports = (function() {
     return [ "agate.css",
             "androidstudio.css",
             "arta.css",
@@ -50,4 +50,4 @@ module.exports = function() {
             "vs.css",
             "xcode.css"
         ];
-};
+})();
