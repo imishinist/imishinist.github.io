@@ -1,34 +1,16 @@
 var Vue = require('vue');
 var marked = require('./marked.js');
 var langFiles = require('./lang.js');
-var editor = require('./editor.js');
+var Editor = require('./editor.js');
+
 var app = new Vue({
     el: '#markdown',
     data: {
         text: '',
-        tabsize: "4",
-        tabs: ["2", "4", "8"],
-        fontsize: 12,
-        mode: 'markdown',
-        modes: editor.modes,
-        theme: 'xcode',
-        themes: editor.themes,
         langFiles: langFiles,
         langFile: localStorage.getItem('langFile') || 'default.css'
     },
     methods: {
-        changeEditorTheme: function(e) {
-            editor.setTheme('ace/theme/' + this.theme);
-        },
-        changeMode: function(e) {
-            editor.getSession().setMode('ace/mode/' + this.mode);
-        },
-        changeTabsize: function(e) {
-            editor.getSession().setTabSize(this.tabsize);
-        },
-        changeFontsize: function(e) {
-            document.getElementById("editor").style.fontSize = this.fontsize + "px";
-        },
         storeLang: function(e) {
             localStorage.setItem("langFile", this.langFile);
         }
@@ -36,13 +18,16 @@ var app = new Vue({
     components: {
         'lazy-link': {
             template: '<link rel="stylesheet" href="css/lang/{{file}}">'
-        }
+        },
+        editor: Editor
     },
     filters: {
         marked: marked
+    },
+    created: function() {
+        this.$on('changedText', function(value) {
+            this.text = value;
+        }.bind(this));
     }
 });
 
-editor.on('change', function() {
-    app.text = editor.getSession().getValue();
-});

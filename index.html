@@ -15,11 +15,7 @@
       連絡先: <a href="https://twitter.com/imishinist">@imishinist</a>
       <div id="markdown">
         <div class="col-sm-6">
-          <select v-model="tabsize" v-on="change: changeTabsize" options="tabs"></select>
-          <select v-model="mode" v-on="change: changeMode" options="modes"></select>
-          <select v-model="theme" v-on="change: changeEditorTheme" options="themes"></select>
-          <input type="number" step="1" min="0" v-model="fontsize" v-on="change: changeFontsize">px
-          <div id="editor"></div>
+          <div v-component="editor"></div>
         </div>
         <div class="col-sm-6">
           <select v-model="langFile" v-on="change: storeLang" options="langFiles"></select>
