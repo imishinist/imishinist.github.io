@@ -1,0 +1,23 @@
+{
+  "name": "imishinist.github.io",
+  "version": "0.0.1",
+  "homepage": "https://imishinist.github.io/",
+  "authors": [
+    "Taisuke Miyazaki <imishinist@gmail.com>"
+  ],
+  "main": "index.html",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {},
+  "dependencies": {
+    "marked": "~0.3.3",
+    "highlightjs": "~8.5.0",
+    "vue": "0.11"
+  }
+}

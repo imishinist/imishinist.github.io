@@ -1,4 +1,3 @@
-var Vue = require('vue');
 var marked = require('./marked.js');
 var langFiles = require('./lang.js');
 var Editor = require('./editor.js');

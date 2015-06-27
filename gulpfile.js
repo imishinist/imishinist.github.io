@@ -6,6 +6,8 @@ var webpack = require('gulp-webpack');
 var sass = require('gulp-sass');
 var watch = require('gulp-watch');
 var connect = require('gulp-connect');
+var filter = require('gulp-filter');
+var bower = require('main-bower-files');
 
 var sass_options = {
     errLogToConsole: true
@@ -16,6 +18,14 @@ gulp.task('sass', function() {
         .pipe(sass(sass_options))
         .pipe(concat('app.css'))
         .pipe(gulp.dest('./css'));
+});
+
+gulp.task('bower', function() {
+    gulp.src(bower())
+        .pipe(filter('**/*.js'))
+        .pipe(uglify())
+        .pipe(concat('lib.js'))
+        .pipe(gulp.dest('js'))
 });
 
 var webpack_options = {

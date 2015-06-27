@@ -1,4 +1,3 @@
-var Vue = require('vue');
 var modes = require('./mode.js');
 var themes = require('./theme.js');
 

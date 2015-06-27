@@ -1,9 +1,7 @@
 module.exports = (function() {
-    var marked = require('marked');
-    var hl = require('highlight.js');
     var renderer = new marked.Renderer();
 
-    hl.initHighlightingOnLoad();
+    hljs.initHighlightingOnLoad();
     renderer.link = function(href, title, text) {
         return '<a href="' + href + '" target="_blank">' + text + '</a>';
     }
