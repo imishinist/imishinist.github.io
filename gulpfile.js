@@ -21,10 +21,18 @@ gulp.task('sass', function() {
 var webpack_options = {
     output: {
         filename: 'app.js'
+    },
+    module: {
+        loaders: [
+            {
+                test: /.html$/,
+                loader: "html-loader?minimize"
+            }
+        ]
     }
 };
 gulp.task('webpack', function() {
-    gulp.src('./src/js/app.js')
+    gulp.src(['./src/js/app.js', './src/js/**/*.html'])
         .pipe(webpack(webpack_options))
         .pipe(uglify())
         .pipe(gulp.dest('./js'));
