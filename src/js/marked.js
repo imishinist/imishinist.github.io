@@ -4,7 +4,7 @@ module.exports = (function() {
     hljs.initHighlightingOnLoad();
     renderer.link = function(href, title, text) {
         return '<a href="' + href + '" target="_blank">' + text + '</a>';
-    }
+    };
 
     marked.setOptions({
         renderer: renderer,
@@ -17,7 +17,7 @@ module.exports = (function() {
         smartypants: false,
         langPrefix: '',
         highlight: function(code) {
-            return hl.highlightAuto(code).value;
+            return hljs.highlightAuto(code).value;
         }
     });
     return marked;
