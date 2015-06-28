@@ -9,11 +9,6 @@ var app = new Vue({
         langFiles: langFiles,
         langFile: localStorage.getItem('langFile') || 'default.css'
     },
-    methods: {
-        storeLang: function(e) {
-            localStorage.setItem("langFile", this.langFile);
-        }
-    },
     components: {
         'lazy-link': {
             template: '<link rel="stylesheet" href="css/lang/{{file}}">'
@@ -24,6 +19,9 @@ var app = new Vue({
         marked: marked
     },
     created: function() {
+        this.$watch('langFile', function(value) {
+            localStorage.setItem('langFile', value);
+        });
         this.$on('changedText', function(value) {
             this.text = value;
         }.bind(this));

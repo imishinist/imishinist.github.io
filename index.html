@@ -19,7 +19,7 @@
           <div v-component="editor"></div>
         </div>
         <div class="col-sm-6">
-          <select v-model="langFile" v-on="change: storeLang" options="langFiles"></select>
+          <select v-model="langFile" options="langFiles"></select>
           <div v-component="lazy-link" v-with="file : langFile"></div>
           <div v-html="text | marked"></div>
         </div>
